@@ -8,6 +8,8 @@ authors = ["Kevin Rodríguez <kyrodriguez97@gmail.com>"]
 python = "^3.10"
 fastapi = "^0.79.0"
 pre-commit = "^2.20.0"
+SQLAlchemy = "^1.4.39"
+databases = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
 
@@ -34,14 +36,6 @@ exclude = '''
   | migrations
 )/
 '''
-
-# Flake8
-[tool.flake8]
-max-line-length = 100
-ignore = "E302,E305"
-extend-ignore = "E203, W503"
-max-complexity = 10
-exclude="*/migrations/*"
 
 # Isort
 [tool.isort]
