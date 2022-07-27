@@ -6,11 +6,11 @@ class PollBase(BaseModel):
     type: str
     is_add_choices_active: bool
     is_voting_active: bool
+    user_id: int
 
 
 class Poll(PollBase):
     id: int
-    user_id: int
 
     class Config:
         orm_mode = True

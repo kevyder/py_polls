@@ -38,3 +38,14 @@ def create_user(user: schemas.UserBase, db: Session = Depends(get_db)):
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     return crud.create_user(db=db, user=user)
+
+
+@app.get("/polls/", response_model=List[schemas.Poll])
+def get_polls(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    polls = crud.get_polls(db=db, skip=skip, limit=limit)
+    return polls
+
+
+@app.post("/polls/")
+async def create_poll(poll: schemas.PollBase, db: Session = Depends(get_db)):
+    return crud.create_poll(db=db, poll=poll)

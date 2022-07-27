@@ -23,8 +23,8 @@ class Poll(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
     type = Column(String)
-    is_add_choices_active = Boolean
-    is_voting_active = Boolean
+    is_add_choices_active = Column(Boolean, default=True)
+    is_voting_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
